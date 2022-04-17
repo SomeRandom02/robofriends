@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import CardList from '../Components/CardList'
 import SearchBox from '../Components/SearchBox'
+import ErrorBoundry from "../Components/ErrorBoundry";
 import './App.css'
 import Scrolll from '../Components/Scrolll'
 // import { findByTestId } from "@testing-library/react";
@@ -36,7 +37,9 @@ class App extends Component {
                     <h1 className="f1">RoboFriends</h1>
                     <SearchBox onSearchChange={this.onSearchChange}/>
                     <Scrolll>
-                        <CardList robots={filteredRobots} />
+                        <ErrorBoundry>
+                            <CardList robots={filteredRobots} />
+                        </ErrorBoundry>
                     </Scrolll>
                 </div>
             );
